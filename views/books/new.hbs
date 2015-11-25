@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Új könyv hozzáadása</title>
+        <meta charset="utf-8"/>
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Új könyv hozzáadása</h1>
+        </div>
+
+<form class="form-horizontal" method="post">
+    <fieldset>
+        <div class="form-group
+            {{#if validationErrors.cim}}
+                has-error
+            {{/if}}
+        ">
+            <label for="cim" class="col-lg-2 control-label">Cim</label>
+            <div class="col-lg-10">
+                <input class="form-control" id="cim" name="cim" placeholder="pl. A tót atyafiak, a jó palócok" type="text" value="{{data.cim}}">
+                {{#if validationErrors.cim}}
+                    <span class="help-block">{{validationErrors.cim.msg}}</span>
+                {{/if}}
+            </div>
+        </div>
+        <div class="form-group
+            {{#if validationErrors.iro}}
+                has-error
+            {{/if}}
+        ">
+            <label for="iro" class="col-lg-2 control-label">Iro</label>
+            <div class="col-lg-10">
+                <input class="form-control" id="iro" name="iro" placeholder="pl. Mikszáth Kálmán" type="text" value="{{data.iro}}">
+                {{#if validationErrors.iro}}
+                    <span class="help-block">{{validationErrors.iro.msg}}</span>
+                {{/if}}
+            </div>
+        </div>
+        <div class="form-group
+            {{#if validationErrors.leiras}}
+                has-error
+            {{/if}}
+        ">
+            <label for="leiras" class="col-lg-2 control-label">Leírás</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="leiras" name="leiras">{{data.leiras}}</textarea>
+                <span class="help-block">Gondolataid, megjegyzéseid, észrevételeid a könyvvel kapcsolatban.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comboBox" class="col-lg-2 control-label">Státusz</label>
+            <div class="col-lg-10">
+                <select id="comboBox">
+                            <option value='new'>Új</option>
+                            <option value='reading'>Olvasás</option>
+                            <option value='ready'>Kész</option>
+                            <option value='giving'>Kölcsönadva</option>
+                            <option value='pending'>Kidobás</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Mégse</button>
+                <button type="submit" class="btn btn-primary">Felvétel</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>

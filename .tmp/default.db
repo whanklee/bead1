@@ -1,0 +1,119 @@
+{
+  "data": {
+    "book": [
+      {
+        "status": "reading",
+        "cim": "Star Wars: Episode VII",
+        "iro": "Lawrence Kasdan",
+        "description": "Star Wars: The Force Awakens is an upcoming American epic space opera[discuss] film directed, co-produced, and co-written by J. J. Abrams. The seventh installment in the main Star Wars film series, it stars Harrison Ford, Mark Hamill, Carrie Fisher, Adam Driver, Daisy Ridley, John Boyega, Oscar Isaac, Lupita Nyong'o, Andy Serkis, Domhnall Gleeson, Anthony Daniels, Peter Mayhew, and Max von Sydow. The story is set approximately 30 years after the events of Return of the Jedi (1983).",
+        "date": "2015-11-01T09:31:24.683Z",
+        "createdAt": "2015-11-01T09:31:24.685Z",
+        "updatedAt": "2015-11-01T09:31:24.685Z",
+        "id": 1
+      }
+    ],
+    "user": [
+      {
+        "surname": "Teszt",
+        "forename": "Elek",
+        "felhasznalonev": "elek",
+        "password": "$2a$10$ANul4sOmFvBhQc1IB7KEHePnLU3jhhUP4H1Jj7pw84tRVol9sSfPK",
+        "avatar": "",
+        "role": "riporter",
+        "createdAt": "2015-11-22T11:38:09.028Z",
+        "updatedAt": "2015-11-22T11:38:09.028Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "book": {
+      "date": {
+        "type": "datetime"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "new",
+          "reading",
+          "ready",
+          "giving",
+          "pending"
+        ]
+      },
+      "cim": {
+        "type": "string"
+      },
+      "iro": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "felhasznalonev": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "surname": {
+        "type": "string"
+      },
+      "forename": {
+        "type": "string"
+      },
+      "avatar": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "riporter",
+          "operator"
+        ],
+        "defaultsTo": "riporter"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "book": {
+      "id": 1
+    },
+    "user": {
+      "id": 1
+    }
+  }
+}
